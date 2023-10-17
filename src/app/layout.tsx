@@ -16,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{children}
+        <iframe src='/wave/index.html' style={{ display: 'block', position: 'fixed', top: 0, left: 0, width: '100vw', height: '100%', zIndex: -1, border: 'none' }}/>
+      </body>
     </html>
   )
 }

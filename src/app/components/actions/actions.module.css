@@ -1,0 +1,62 @@
+.actionContainer {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: auto;
+}
+
+.logoContainer {
+  width: 150px;
+  height: auto;
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  width: 150px;
+  height: auto;
+}
+
+.navigationBar {
+  padding: 1rem;
+}
+
+.navigationBar .item {
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.navigationBar .item:hover {
+  color: #ffa900;
+}
+
+@media screen and (min-width: 700px) {
+
+  .actionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .navigationBar {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 800px;
+    gap: 1.5rem;
+    justify-content: flex-end;
+  }
+
+  .navigationBar .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
