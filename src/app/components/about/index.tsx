@@ -33,20 +33,25 @@ const About = () => {
   const myParagraph =  `Hello, I'm <span>Wachara Nilsonti</span>, though my friends affectionately call me <span>Wachiii</span>.I work as a Software Engineer in the bustling metropolis of Bangkok, Thailand 🇹🇭  <p>On this personal website, you'll discover not only my professional experiences but also insights into my personal life.</p>`;
 
   return (
-    <div className={styles.container}>
-      <div>
-        <div className={styles.avatar}/>
-        <div className={styles['avatar-original']}/>
+    <div>
+      <div className={styles.container}>
+        <div>
+          <div className={styles.avatar}/>
+          <div className={styles['avatar-original']}/>
+        </div>
+        <div>
+          <div className={styles['container-text']}>
+            <h1 className={styles.textTitle}>Wachiii <span>Liv Rafael</span></h1>
+            <h2 className={styles.textTitle}>{`I`}<span id='scramble'>{displayTexts[step]}</span></h2>
+          </div>
+          <div className={styles.paragraph} dangerouslySetInnerHTML={{ __html: myParagraph }} />
+          <div className={styles['container-text-footer']}>
+            <Button>Fine me more</Button>
+          </div>
+        </div>
       </div>
-      <div>
-        <div className={styles['container-text']}>
-          <h1 className={styles.textTitle}>Wachiii <span>Liv Rafael</span></h1>
-          <h2 className={styles.textTitle}>{`I`}<span id='scramble'>{displayTexts[step]}</span></h2>
-        </div>
-        <div className={styles.paragraph} dangerouslySetInnerHTML={{ __html: myParagraph }} />
-        <div className={styles['container-text-footer']}>
-          <Button>Fine me more</Button>
-        </div>
+      <div className={styles.information}>
+        information
       </div>
     </div>
   )

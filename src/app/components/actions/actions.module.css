@@ -2,7 +2,14 @@
   display: block;
   position: fixed;
   top: 0;
-  left: auto;
+  z-index: 99;
+  height: 150px;
+  transition: all 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+.actionContainer.addBackground {
+  background-color: #ffa900;
+  height: 60px;
 }
 
 .logoContainer {
@@ -13,7 +20,7 @@
 
 .logo {
   display: flex;
-  width: 150px;
+  width: 120px;
   height: auto;
 }
 
@@ -30,6 +37,10 @@
 
 .navigationBar .item:hover {
   color: #ffa900;
+}
+
+.actionContainer.addBackground .navigationBar .item:hover {
+  color: black;
 }
 
 @media screen and (min-width: 700px) {

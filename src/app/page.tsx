@@ -1,6 +1,6 @@
 'use client'
 
-import { useState} from 'react'
+import { useEffect, useRef, useState} from 'react'
 import styles from './page.module.css'
 import ActionsBar from './components/actions'
 import About from './components/about'
@@ -15,10 +15,19 @@ const actions: ActionType = {
 }
 
 export default function Home() {
+  const [menuBg, setMenuBg] = useState<boolean>(false)
   const [location, setLocation] = useState<LocationType>('about')
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window === undefined) return
+    window.addEventListener("scroll",() => {
+      setMenuBg(window.scrollY > 10)
+    });
+  }, []);
+
   return (
     <main className={styles.main}>
-      <ActionsBar onAction={setLocation} />
+      <ActionsBar onAction={setLocation} addBackground={menuBg} />
       {actions[location]}
     </main>
   )
