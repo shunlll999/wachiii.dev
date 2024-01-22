@@ -1,5 +1,8 @@
 import styles from '../about.module.css';
 import { CloseButton } from '../../ui/button';
+import Timeline from '../../ui/button/timeline';
+import { schoolData } from '@/constants/schoolData';
+import { experinceData } from '@/constants/experinceData';
 const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: string, myParagraph: string, show: boolean, onClose: () => void }) => {
   return (
     <div className={[styles.cover, show ? styles.show : ''].join(' ')}>
@@ -15,6 +18,7 @@ const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: s
             <li>+66 81 123 4567</li>
             <li>rafael5715@gmail.com</li>
           </ul>
+          <div className={styles['information-scroll']}>wheel your mouse ➜ ➜</div>
         </div>
         <div className={styles['information-more-detail']}>
           <div className={styles['container-text']}>
@@ -23,15 +27,12 @@ const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: s
           </div>
           <div className={styles.paragraph} dangerouslySetInnerHTML={{ __html: myParagraph }} />
           <section className={styles['section-container']}>
-            <div>Quality Services</div>
-            <ul>
-              <li>Website developemnt</li>
-              <li>Mobile developemnt</li>
-            </ul>
+            <div className={styles['section-title']}>Education Timeline</div>
+            <Timeline data={Object.entries(schoolData)} />
           </section>
           <section className={styles['section-container']}>
-            <div>Experiences</div>
-            <ul className={styles['hide']}>
+            <div className={styles['section-title']}>Experiences</div>
+            <ul className={`${styles['hide']} ${styles['section-item-list']}`}>
               <li>
                 <span>ReactJS</span><br />
                 <progress data-value="85" className={styles['progress-bar']} value="85" max="100" />
@@ -55,28 +56,25 @@ const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: s
             </ul>
           </section>
           <section className={styles['section-container']}>
-            <div>Language Skills</div>
-            <ul>
+            <div className={styles['section-title']}>Quality Services</div>
+            <ul className={styles['section-item-list']}>
+              <li>Website developemnt</li>
+              <li>Mobile developemnt</li>
+            </ul>
+          </section>
+          <section className={styles['section-container']}>
+            <div className={styles['section-title']}>Working Timeline</div>
+            <Timeline data={Object.entries(experinceData).reverse()} />
+          </section>
+          <section className={styles['section-container']}>
+            <div className={styles['section-title']}>Language Skills</div>
+            <ul className={styles['section-item-list']}>
               <li>TH</li>
               <li>EN</li>
             </ul>
           </section>
-          <section className={styles['section-container']}>
-            <div>Education Timeline</div>
-            <ul>
-              <li>TH</li>
-              <li>EN</li>
-            </ul>
-          </section>
-          <section className={styles['section-container']}>
-            <div>Working Timeline</div>
-            <ul>
-              <li>TH</li>
-              <li>EN</li>
-            </ul>
-          </section>
-          <section className={styles['section-container']}>
-            <div>Clients Feedback</div>
+          <section className={`${styles['section-container']} ${styles['in-visible']}`}>
+            <div className={styles['section-title']}>Clients Feedback</div>
             <ul>
               <li>TH</li>
               <li>EN</li>
