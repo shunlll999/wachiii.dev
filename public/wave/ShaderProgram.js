@@ -1,3 +1,4 @@
+// https://github.com/bsehovac/shader-program
 class ShaderProgram {
 
   constructor( holder, options = {} ) {

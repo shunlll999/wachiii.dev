@@ -5,4 +5,12 @@ const Button = ({ children }: any) => {
   )
 }
 
+export const CloseButton = ({ children, className, onClick }: any) => {
+  return (
+    <div onClick={onClick}>
+      <button className={[styles.buttonClose, className].join('')}>{children}</button>
+    </div>
+  )
+}
+
 export default Button

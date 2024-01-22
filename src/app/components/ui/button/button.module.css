@@ -18,3 +18,18 @@
   background-color: #673e00;
   color: #ff4d00;
 }
+
+.buttonClose {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff9900;
+  transition: all 0.2s ease-in-out;
+  color: white;
+  user-select: none;
+  margin: auto;
+}

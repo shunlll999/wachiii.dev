@@ -1,17 +1,20 @@
 'use client'
 
-import { useEffect, useRef, useState} from 'react'
+import { useEffect, useState} from 'react'
 import styles from './page.module.css'
 import ActionsBar from './components/actions'
 import About from './components/about'
+import { AppContext } from './context/applicationContent'
+import HEIGH_COMPONENT from './context/componentsContextApp'
+import Transition from '@/utils/transition-page-utils'
 
 export type LocationType = 'about' | 'portfolio' | 'vblog' | 'contact'
-type ActionType = Record<LocationType, JSX.Element>
+type ActionType = Record<LocationType, any>
 const actions: ActionType = {
-  about: <About />,
-  portfolio: <div>Portfolio</div>,
-  vblog: <div>VBlog</div>,
-  contact: <div>Contact</div>
+  about: About,
+  portfolio: () => <div>Portfolio</div>,
+  vblog: () => <div>VBlog</div>,
+  contact: () => <div>Contact</div>
 }
 
 export default function Home() {
@@ -25,10 +28,23 @@ export default function Home() {
     });
   }, []);
 
+  const redirectTo = (locationSelected: LocationType) => {
+    Transition.out(actions[location], () => {
+      setLocation(locationSelected)
+    })
+
+  }
+
+  const value: any = {
+    transition: Transition
+  }
+
   return (
-    <main className={styles.main}>
-      <ActionsBar onAction={setLocation} addBackground={menuBg} />
-      {actions[location]}
-    </main>
+    <AppContext.Provider value={value}>
+      <main className={styles.main}>
+        <ActionsBar onAction={redirectTo} addBackground={menuBg} />
+        <HEIGH_COMPONENT Component={actions[location]} />
+      </main>
+    </AppContext.Provider>
   )
 }
