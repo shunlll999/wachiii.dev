@@ -7,12 +7,13 @@ import About from './components/about'
 import { AppContext } from './context/applicationContent'
 import HEIGH_COMPONENT from './context/componentsContextApp'
 import Transition from '@/utils/transition-page-utils'
+import Portfolio from './components/portfolio'
 
 export type LocationType = 'about' | 'portfolio' | 'vblog' | 'contact'
 type ActionType = Record<LocationType, any>
 const actions: ActionType = {
   about: About,
-  portfolio: () => <div>Portfolio</div>,
+  portfolio: Portfolio,
   vblog: () => <div>VBlog</div>,
   contact: () => <div>Contact</div>
 }

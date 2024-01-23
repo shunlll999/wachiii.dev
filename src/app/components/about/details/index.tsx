@@ -27,6 +27,13 @@ const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: s
           </div>
           <div className={styles.paragraph} dangerouslySetInnerHTML={{ __html: myParagraph }} />
           <section className={styles['section-container']}>
+            <div className={styles['section-title']}>Language Skills</div>
+            <ul className={styles['section-item-list']}>
+              <li>TH</li>
+              <li>EN</li>
+            </ul>
+          </section>
+          <section className={styles['section-container']}>
             <div className={styles['section-title']}>Education Timeline</div>
             <Timeline data={Object.entries(schoolData)} />
           </section>
@@ -44,6 +51,14 @@ const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: s
               <li>
                 <span>Flutter</span><br />
                 <progress data-value="32" className={styles['progress-bar']} value="32" max="100" />
+              </li>
+              <li>
+                <span>Swift</span><br />
+                <progress data-value="25" className={styles['progress-bar']} value="25" max="100" />
+              </li>
+              <li>
+                <span>Kotlin</span><br />
+                <progress data-value="25" className={styles['progress-bar']} value="25" max="100" />
               </li>
               <li>
                 <span>C# (Unity)</span><br />
@@ -66,18 +81,10 @@ const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: s
             <div className={styles['section-title']}>Working Timeline</div>
             <Timeline data={Object.entries(experinceData).reverse()} />
           </section>
-          <section className={styles['section-container']}>
-            <div className={styles['section-title']}>Language Skills</div>
-            <ul className={styles['section-item-list']}>
-              <li>TH</li>
-              <li>EN</li>
-            </ul>
-          </section>
-          <section className={`${styles['section-container']} ${styles['in-visible']}`}>
+          <section className={`${styles['section-container']}`}>
             <div className={styles['section-title']}>Clients Feedback</div>
             <ul>
-              <li>TH</li>
-              <li>EN</li>
+              <li><i className={styles.empty}>- not yet include -</i></li>
             </ul>
           </section>
         </div>
