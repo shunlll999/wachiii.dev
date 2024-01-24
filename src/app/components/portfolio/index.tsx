@@ -1,8 +1,9 @@
 import styles from './portfolio.module.css'
+import TopContentView from './topContentView'
 const Portfolio = () => {
   return (
-    <div id="panel" className={styles['flex-layout']}>
-      Posrtfolios
+    <div className={styles['flex-layout']}>
+      <TopContentView />
     </div>
   )
 }

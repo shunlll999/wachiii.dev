@@ -1,0 +1,60 @@
+.coverImage {
+  object-fit: contain;
+  background: rgba(5, 5, 5, 0.744);
+}
+
+.coverTopcontentView {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.coverDescription {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  padding: 0 3rem;
+  position: relative;
+}
+
+
+.coverDescription::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  border-left-style: dotted;
+  border-width: 3px;
+  border-color:  #ffa90042;;
+  border-bottom: none;
+  border-right: none;
+  border-top: none;
+}
+
+.coverDescription h1{
+  margin-bottom: 1rem;
+}
+
+.coverDescription p{
+  font-size: 14px;
+  margin-top: 14px;
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.buttons {
+  margin: 3rem 0;
+}
+
+.buttons button {
+  margin: 0 3px;
+}
+
+

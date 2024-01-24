@@ -1,7 +1,8 @@
 @media screen and (min-width: 700px) {
   .flex-layout {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 1440px;
+    margin: auto;
+    padding: 2rem 0;
   }
 }

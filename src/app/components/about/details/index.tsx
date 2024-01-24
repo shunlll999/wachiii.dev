@@ -3,7 +3,14 @@ import { CloseButton } from '../../ui/button';
 import Timeline from '../../ui/button/timeline';
 import { schoolData } from '@/constants/schoolData';
 import { experinceData } from '@/constants/experinceData';
-const Details = ({ displayTexts, myParagraph, show, onClose }: { displayTexts: string, myParagraph: string, show: boolean, onClose: () => void }) => {
+type DetailType = {
+  displayTexts: string
+  myParagraph: string
+  show: boolean
+  onClose: () => void
+}
+
+const Details = ({ displayTexts, myParagraph, show, onClose }: DetailType) => {
   return (
     <div className={[styles.cover, show ? styles.show : ''].join(' ')}>
       <div className={`${styles.information} ${styles['add-long']}`}>
