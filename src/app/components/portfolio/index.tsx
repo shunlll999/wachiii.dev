@@ -1,9 +1,58 @@
 import styles from './portfolio.module.css'
-import TopContentView from './topContentView'
+import TopContentView from '../ui/comps/topContentView'
+import RecentCard from '../ui/comps/cards/recent'
+import GalleryTabBar from '../ui/cagergory/bar'
+import { useState } from 'react'
+
+const defaultGallery = [
+  { type: 'webs' },
+  { type: 'webs' },
+  { type: 'videos' },
+  { type: 'videos' },
+  { type: 'videos' },
+  { type: 'games' },
+  { type: 'games' },
+  { type: 'games' },
+  { type: 'images' },
+  { type: 'images' },
+  { type: 'webs' },
+  { type: 'webs' },
+  { type: 'webs' },
+  { type: 'webs' },
+  { type: 'webs' },
+  { type: 'webs' },
+  { type: 'webs' },
+  { type: 'videos' },
+  { type: 'videos' },
+  { type: 'videos' },
+  { type: 'games' },
+  { type: 'games' },
+];
+
 const Portfolio = () => {
+  const [gallery, setGallery] = useState(defaultGallery)
+
+  const  onSelectType = (type: string) => {
+    const newGallery = defaultGallery.filter((item) => item.type === type)
+    setGallery(newGallery.length > 0 ? newGallery : defaultGallery);
+  }
+
   return (
     <div className={styles['flex-layout']}>
       <TopContentView />
+      <h2>Top 3 Recents</h2>
+      <div className={styles['recent-card-group']}>
+        <RecentCard type='top3' />
+        <RecentCard type='top3' />
+        <RecentCard type='top3' />
+      </div>
+      <h3>Gallery</h3>
+      <GalleryTabBar onSelectType={onSelectType} />
+      <div className={styles['recent-card-group']}>
+        {gallery.map((item, key) => (
+           <RecentCard key={key} type={item.type} />
+        ))}
+      </div>
     </div>
   )
 }

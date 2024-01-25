@@ -1,8 +1,28 @@
 @media screen and (min-width: 700px) {
   .flex-layout {
-    display: flex;
+    display: block;
     max-width: 1440px;
     margin: auto;
     padding: 2rem 0;
+    background-color: rgba(42, 11, 74, 0.388);
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    border-radius: 5px;
+  }
+
+  .flex-layout h2{
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 2rem 0;
+    border-bottom: 1px solid #ff990070;
+    border-bottom-style: dotted;
+  }
+
+  .recent-card-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 2rem 0;
   }
 }

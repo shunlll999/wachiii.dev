@@ -1,0 +1,46 @@
+.bar-container {
+  --bottom-line: 1px solid #ff99007d;
+}
+
+
+.bar-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  border-bottom: var(--bottom-line);
+  border-bottom-style: dotted;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 10px 10px 0 0;
+  height: 30px;
+  padding: 1rem;
+  /* background-color: orange; */
+  font-size: small;
+  border-top:  var(--bottom-line);
+  border-left:  var(--bottom-line);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.action-button:active {
+  background-color: #ff9900;
+  color: black;
+}
+
+.action-button.active {
+  background-color: #ff9900;
+  color: black;
+}
+
+.total {
+  font-size: small;
+  text-align: right;
+  width: 100%;
+}
