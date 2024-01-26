@@ -19,9 +19,9 @@ const defaultGallery = [
   { type: 'webs' },
   { type: 'webs' },
   { type: 'webs' },
-  { type: 'webs' },
-  { type: 'webs' },
-  { type: 'webs' },
+  { type: 'mobiles' },
+  { type: 'mobiles' },
+  { type: 'mobiles' },
   { type: 'videos' },
   { type: 'videos' },
   { type: 'videos' },
@@ -29,12 +29,16 @@ const defaultGallery = [
   { type: 'games' },
 ];
 
-const Portfolio = () => {
+const Portfolio = (props: any) => {
   const [gallery, setGallery] = useState(defaultGallery)
 
   const  onSelectType = (type: string) => {
     const newGallery = defaultGallery.filter((item) => item.type === type)
     setGallery(newGallery.length > 0 ? newGallery : defaultGallery);
+  }
+
+  const onSelectContent = (type: string) => {
+    props.redirectTo('content', { type })
   }
 
   return (
@@ -50,7 +54,7 @@ const Portfolio = () => {
       <GalleryTabBar onSelectType={onSelectType} />
       <div className={styles['recent-card-group']}>
         {gallery.map((item, key) => (
-           <RecentCard key={key} type={item.type} />
+           <RecentCard key={key} type={item.type} onSelected={onSelectContent}/>
         ))}
       </div>
     </div>

@@ -8,7 +8,8 @@ const GalleryTabBar = ({ onSelectType }: any) => {
     { value: 'Videos', href: '#videos', active: false, total: 4 },
     { value: 'Web', href: '#webs', active: false, total: 3 },
     { value: 'Games', href: '#games', active: false, total: 10 },
-    { value: 'Photos', href: '#images', active: false, total: 5 },
+    { value: 'Mobile', href: '#mobiles', active: false, total: 3 },
+    { value: 'Photos', href: '#images', active: false, total: 2 },
   ])
 
   const onSelectLink = (event: any) => {
