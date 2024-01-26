@@ -11,15 +11,14 @@ import Portfolio from './components/portfolio'
 import ContentView from './components/content'
 import { useSearchParams, useRouter } from 'next/navigation'
 
-export type LocationType = 'about' | 'portfolio' | 'vblog' | 'contact' | 'content' | 'empty'
+export type LocationType = 'about' | 'portfolio' | 'vblog' | 'contact' | 'content'
 type ActionType = Record<LocationType, any>
 const actions: ActionType = {
   about: About,
   portfolio: Portfolio,
   vblog: () => <div>VBlog</div>,
   contact: () => <div>Contact</div>,
-  content: ContentView,
-  empty : () => null
+  content: ContentView
 }
 
 export default function Home() {
