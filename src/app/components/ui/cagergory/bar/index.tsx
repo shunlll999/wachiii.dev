@@ -26,6 +26,7 @@ const GalleryTabBar = ({ onSelectType }: any) => {
 
   useEffect(() => {
     console.log('searchParams', searchParams)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -68,9 +68,9 @@ export default function Home() {
 
   return (
     <AppContext.Provider value={value}>
-      <main className={styles.main}>
+      <main>
         <ActionsBar onAction={redirectTo} addBackground={menuBg} />
-        <div style={{
+        {/* <div style={{
           position: 'absolute',
           width: '100%',
           height: '100%',
@@ -84,8 +84,8 @@ export default function Home() {
           alignItems: 'center',
         }}>
           LOADING...
-        </div>
-        <HEIGH_COMPONENT Component={actions[location]} />
+        </div> */}
+        {/* <HEIGH_COMPONENT Component={actions[location]} /> */}
       </main>
     </AppContext.Provider>
   )

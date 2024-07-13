@@ -5,9 +5,8 @@ import Navigation from './navigation';
 const ActionsBar = ({ onAction, addBackground }: { onAction: (location: LocationType) => void, addBackground?: boolean }) => {
   return (
     <div className={[styles.actionContainer, addBackground ? styles.addBackground : ''].join(' ')}>
-
-      <Logo />
-      <Navigation onAction={onAction} />
+      <Logo addColor={addBackground} />
+      <Navigation onAction={onAction} addBackground={addBackground} />
     </div>
   )
 }
