@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './bar.module.css'
+import { useSearchParams } from 'next/navigation';
 
 const GalleryTabBar = ({ onSelectType }: any) => {
+  const searchParams = useSearchParams()
   const [currentIndex, setCurrentIndex] = useState(0);
   const [linkList, setLinkList] = useState([
     { value: 'All', href: '#all', active: true, total: 22 },
@@ -13,7 +15,7 @@ const GalleryTabBar = ({ onSelectType }: any) => {
   ])
 
   const onSelectLink = (event: any) => {
-    const hrefValue = event.target.href.split('/#')[1]
+    const hrefValue = event.target.href.split('#')[1]
     const linkIndex = linkList.findIndex((link) => link.href === `#${hrefValue}`)
     const newLinkList = linkList.map((link) => ({ ...link, active: false }))
     setCurrentIndex(linkIndex)
@@ -21,6 +23,10 @@ const GalleryTabBar = ({ onSelectType }: any) => {
     setLinkList(newLinkList);
     if (onSelectType) onSelectType(hrefValue);
   }
+
+  useEffect(() => {
+    console.log('searchParams', searchParams)
+  }, []);
 
   return (
     <div className={styles['bar-container']}>
