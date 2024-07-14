@@ -4,12 +4,13 @@
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 25% 5% 70%;
+  grid-template-columns: 30% 5% 55%;
 }
 
 .align-right {
   text-align: right;
   padding-right: 1rem;
+  font-size: 10px;
 }
 
 .timeline-item:last-child .vertical-line {
@@ -51,4 +52,12 @@
   width: 100%;
   text-transform: uppercase;
   font-size: 12px;
+}
+
+@media screen and (min-width: 700px) {
+
+  .timeline-item {
+    grid-template-columns: 25% 5% 70%;
+  }
+
 }

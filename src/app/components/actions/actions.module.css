@@ -7,7 +7,6 @@
 
 .logo {
   display: flex;
-  width: 100%;
   height: auto;
   padding: 0 1rem;
   filter: invert(0);
@@ -51,7 +50,7 @@
   z-index: 1001;
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
