@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import TopContentView from '../ui/comps/topContentView';
 import { getDocuments, ResultType } from '@/app/connections/getData';
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 const defaultGallery = [
   { type: 'webs' },
@@ -96,7 +97,7 @@ const Portfolio = () => {
       <div className={styles['recent-card-group']}>
         {isLoading ? 'LOADING' : ''}
         {top3Data.map((item, key) => (
-          <RecentCard  key={key} type='top3' data={item} onSelected={() => onSelectContent({ id: item.id, pageName: item.name })} />
+          <Link key={key} href={`/portfolio/details?info=${item.name}⍵${item.id}`}><RecentCard type='top3' data={item} /></Link>
         ))}
       </div>
       <h3>Gallery</h3>
