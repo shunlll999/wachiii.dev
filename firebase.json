@@ -9,6 +9,23 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/about",
+        "destination": "/about.html"
+      },
+      {
+        "source": "/portfolio",
+        "destination": "/portfolio.html"
+      },
+      {
+        "source": "/vblog",
+        "destination": "/vblog.html"
+      },{
+        "source": "/contact",
+        "destination": "/contact.html"
+      }
     ]
   }
 }
