@@ -70,7 +70,7 @@ export default function Home() {
     <AppContext.Provider value={value}>
       <main>
         <ActionsBar onAction={redirectTo} addBackground={menuBg} />
-        {/* <div style={{
+        <div style={{
           position: 'absolute',
           width: '100%',
           height: '100%',
@@ -84,9 +84,10 @@ export default function Home() {
           alignItems: 'center',
         }}>
           LOADING...
-        </div> */}
-        {/* <HEIGH_COMPONENT Component={actions[location]} /> */}
+        </div>
+        <HEIGH_COMPONENT Component={actions[location]} />
       </main>
+      <iframe src='/wave/index.html' style={{ display: 'block', position: 'fixed', top: 0, left: 0, width: '100vw', height: '100%', zIndex: -1, border: 'none' }}/>
     </AppContext.Provider>
   )
 }

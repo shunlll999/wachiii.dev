@@ -10,5 +10,5 @@ export const experinceData = {
   '2015.1 - 2015.1': 'Happy Fresh',
   '2015 - 2016': 'Nadia Thailand / Javascript Developer',
   '2016 - 2017': 'Nimble / Front End Engineer',
-  '2018 - Present': 'MOHARA BKK / Management Engineer'
+  '2018 - Present': 'MOHARA BKK / Senior Software Engineer'
 }

@@ -1,0 +1,14 @@
+[debug] [2024-07-26T05:53:15.760Z] ----------------------------------------------------------------------
+[debug] [2024-07-26T05:53:15.761Z] Command:       /Users/wachiii/.nvm/versions/node/v20.13.0/bin/node /Users/wachiii/.nvm/versions/node/v20.13.0/bin/firebase deploy
+[debug] [2024-07-26T05:53:15.762Z] CLI Version:   13.14.1
+[debug] [2024-07-26T05:53:15.762Z] Platform:      darwin
+[debug] [2024-07-26T05:53:15.762Z] Node Version:  v20.13.0
+[debug] [2024-07-26T05:53:15.762Z] Time:          Fri Jul 26 2024 12:53:15 GMT+0700 (Indochina Time)
+[debug] [2024-07-26T05:53:15.762Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-26T05:53:15.796Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-26T05:53:15.796Z] > authorizing via signed-in user (rafael5715@gmail.com)
+[debug] [2024-07-26T05:53:15.797Z] [iam] checking project wachiii-dev for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-07-26T05:53:15.797Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/wachiii-dev:testIamPermissions [none]
+[debug] [2024-07-26T05:53:15.797Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/wachiii-dev:testIamPermissions x-goog-quota-user=projects/wachiii-dev
+[debug] [2024-07-26T05:53:15.797Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/wachiii-dev:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
