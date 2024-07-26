@@ -11,14 +11,14 @@ export type CardDataType = {
 }
 
 type RecentCardProps = {
-  onSelected?: (type: string) => void
+  onSelected?: () => void
   data: CardDataType
   type: string
 }
 
 const RecentCard = ({ type, onSelected, data }: RecentCardProps) => {
   return (
-    <div data-type={type} className={styles.card} onClick={() => onSelected && onSelected(type)}>
+    <div data-type={type} className={styles.card} onClick={() => onSelected && onSelected()}>
       <img className={styles['card-body-image']} src={data.photo_url} alt={data.name} />
       <h5 className={styles['card-title']}>{data.name}</h5>
       <p className={styles['card-description']}>{data.describe}</p>

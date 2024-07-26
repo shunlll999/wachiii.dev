@@ -1,5 +1,5 @@
 import About from './components/about'
-import RootLayout from './components/layout/layout'
+import RootLayout from './layout'
 
 export default function Home() {
   return (

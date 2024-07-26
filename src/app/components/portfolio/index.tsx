@@ -1,9 +1,11 @@
+'use client'
 import styles from './portfolio.module.css'
 import RecentCard from '../ui/comps/cards/recent'
 import GalleryTabBar from '../ui/cagergory/bar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TopContentView from '../ui/comps/topContentView';
-import { describe } from 'node:test';
+import { getDocuments, ResultType } from '@/app/connections/getData';
+import { useRouter } from 'next/navigation'
 
 const defaultGallery = [
   { type: 'webs' },
@@ -57,36 +59,52 @@ const top3 = [
   }
 ]
 
-const Portfolio = (props: any) => {
+type RedirectType = {
+  id?: string
+  pageName: string
+}
+
+const Portfolio = () => {
   const [gallery, setGallery] = useState(defaultGallery)
+  const [isLoading, setIsLoading] = useState(false)
+  const [top3Data, setTop3Data] = useState<any[]>([])
+  const router = useRouter()
 
   const  onSelectType = (type: string) => {
     const newGallery = defaultGallery.filter((item) => item.type === type)
     setGallery(newGallery.length > 0 ? newGallery : defaultGallery);
   }
 
-  const onSelectContent = (type: string) => {
-    props.redirectTo('content', { type })
+  const onSelectContent = (item?: RedirectType) => {
+    if (item) {
+      router.push(`portfolio/details?info=${item.pageName}⍵${item.id}`)
+    }
   }
+
+  useEffect(() => {
+    setIsLoading(true)
+    getDocuments('/portfoliosCollection', (docs) => {
+      setTop3Data(docs)
+      setIsLoading(false)
+    })
+  }, [])
 
   return (
     <div className={styles['flex-layout']}>
       <TopContentView />
       <h2 className={styles.headline}>Top 3 Recents</h2>
       <div className={styles['recent-card-group']}>
-        {/* <RecentCard type='top3' />
-        <RecentCard type='top3' />
-        <RecentCard type='top3' /> */}
-        {top3.map((item, key) => (
-           <RecentCard  key={key} type='top3' data={item} />
+        {isLoading ? 'LOADING' : ''}
+        {top3Data.map((item, key) => (
+          <RecentCard  key={key} type='top3' data={item} onSelected={() => onSelectContent({ id: item.id, pageName: item.name })} />
         ))}
       </div>
       <h3>Gallery</h3>
       <GalleryTabBar onSelectType={onSelectType} />
       <div className={styles['recent-card-group']}>
-        {/* {gallery.map((item, key) => (
-           <RecentCard key={key} type={item.type} onSelected={onSelectContent}/>
-        ))} */}
+        {gallery.map((item, key) => (
+           <RecentCard key={key} type={item.type} onSelected={() => onSelectContent()} data={top3[Math.round(Math.random() * 2)]}/>
+        ))}
       </div>
     </div>
   )

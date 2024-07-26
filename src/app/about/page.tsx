@@ -1,10 +1,8 @@
 'use client'
 import About from '../components/about'
-import RootLayout from '../components/layout/layout'
-import Metadata from '../components/layout/metaData'
+import RootLayout from '../layout'
 
 const AboutPage = () => {
-  console.log('SamplePage view')
   return (
     <RootLayout>
       <About />

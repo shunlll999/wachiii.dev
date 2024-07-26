@@ -1,9 +1,8 @@
 'use client'
-import RootLayout from '../components/layout/layout'
 import Portfolio from '../components/portfolio'
+import RootLayout from '../layout'
 
-const AboutPage = () => {
-  console.log('SamplePage view')
+const PortfolioPage = () => {
   return (
     <RootLayout>
       <Portfolio />
@@ -11,4 +10,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default PortfolioPage

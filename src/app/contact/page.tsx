@@ -1,4 +1,4 @@
-import RootLayout from '../components/layout/layout'
+import RootLayout from '../layout';
 import styles from './vblog.module.css'
 
 const ContactMePage = () => {
