@@ -16,7 +16,25 @@
   object-fit: cover;
   box-shadow: 0px  0px  100px -50px  rgba(255, 255, 255, 0.436);
   width: 100%;
-  height: 300px;
+  height: 450px;
+}
+
+.displayImageContainer {
+  position: relative;
+
+}
+
+.displayImage {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  box-shadow: 6px 4px 20px -10px #ffa900, -13px -5px 20px -10px #850536;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  border: 4px solid #ff9900;
 }
 
 .coverTopcontentView {
@@ -25,30 +43,37 @@
   margin: auto;
 }
 
+.description {
+  display: block;
+  width: 100%;
+}
+
 .coverTopcontentView::after {
   content: '';
   display: block;
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.577) 0%, rgb(0, 0, 0) 90%, rgb(0, 0, 0) 100%);
-  -webkit-mask: linear-gradient(45deg, rgba(0, 0, 0, 0.577) 10%, rgba(0, 0, 0, 0.841) 30%, rgb(0, 0, 0) 60%);
-  mask: linear-gradient(45deg, rgba(0, 0, 0, 0.577) 10%, rgba(0, 0, 0, 0.841) 30%, rgb(0, 0, 0) 60%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.577) 0%, rgb(0, 0, 0) 90%, rgb(0, 0, 0) 100%);
+  -webkit-mask: linear-gradient(180deg, rgba(0, 0, 0, 0.577) 10%, rgba(0, 0, 0, 0.841) 30%, rgb(0, 0, 0) 60%);
+  mask: linear-gradient(180deg, rgba(0, 0, 0, 0.577) 10%, rgba(0, 0, 0, 0.841) 30%, rgb(0, 0, 0) 60%);
   backdrop-filter: blur(10px);
   top: 0;
   left: 0;
+  transition: all 0.5s var(--easing-animation);
 }
 
 .coverDescription {
   display: flex;
   flex-direction: column;
-  padding: 0 3rem;
+  padding: 1rem 0 0;
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 999;
-  transform: translate(0, -50%);
-  height: 80%;
+  transform: translate(-50%, 0);
+  height: 50%;
+  width: 80%;
 }
 
 
@@ -58,14 +83,14 @@
   position: absolute;
   left: 0;
   top: 0;
-  height: 100%;
-  width: 100px;
-  border-left-style: dotted;
+  height: 100px;
+  width: 100%;
+  border-top: dotted;
   border-width: 1px;
   border-color:  #ffffff42;;
   border-bottom: none;
   border-right: none;
-  border-top: none;
+  border-left-style: none;
 }
 
 .coverDescription h1{
@@ -134,4 +159,70 @@
 
 .icon.game {
   background-image: url(/assets/images/game-controller-outline-svgrepo-com.svg);
+}
+
+
+@media screen and (min-width: 700px) {
+  .title {
+    margin: 0 0 2rem;
+  }
+
+  .coverImage {
+    object-fit: cover;
+    box-shadow: 0px  0px  100px -50px  rgba(255, 255, 255, 0.436);
+    width: 100%;
+    height: 300px;
+  }
+
+  .displayImage {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 30%;
+  }
+
+  .coverTopcontentView {
+    display: block;
+    position: relative;
+    margin: auto;
+  }
+
+  .description {
+    width: 50%;
+  }
+
+  .coverTopcontentView::after {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.577) 0%, rgb(0, 0, 0) 90%, rgb(0, 0, 0) 100%);
+    -webkit-mask: linear-gradient(45deg, rgba(0, 0, 0, 0.577) 10%, rgba(0, 0, 0, 0.841) 30%, rgb(0, 0, 0) 60%);
+    mask: linear-gradient(45deg, rgba(0, 0, 0, 0.577) 10%, rgba(0, 0, 0, 0.841) 30%, rgb(0, 0, 0) 60%);
+    backdrop-filter: blur(10px);
+  }
+
+  .coverDescription {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(0, -50%);
+    height: 80%;
+  }
+
+  .coverDescription::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    border-left-style: dotted;
+    border-width: 1px;
+    border-color:  #ffffff42;;
+    border-bottom: none;
+    border-right: none;
+    border-top: none;
+  }
 }

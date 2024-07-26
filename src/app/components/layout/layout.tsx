@@ -6,6 +6,7 @@ import styles from './layout.module.css'
 import { LocationType } from '@/app/page'
 import { useEffect, useState } from 'react'
 import Metadata from './metaData'
+import Footer from '../footer'
 
 const inter = Inter({ subsets: ['latin'] })
 

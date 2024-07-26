@@ -37,6 +37,11 @@ const About = () => {
       setStep(step)
     }})
     .to('#scramble', {duration: 0.5, opacity: 1})
+
+    console.group('👋 Hello, I\'m Wachiii Liv Rafael')
+    console.log(`I work as a Software Engineer in the bustling metropolis of Bangkok, Thailand 🇹🇭, On this personal website, you'll discover not only my professional experiences but also insights into my personal life. `)
+    console.groupEnd()
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

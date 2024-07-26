@@ -32,6 +32,12 @@
   color: white;
   user-select: none;
   margin: auto;
+  z-index: 999;
+}
+
+.buttonClose:hover {
+  background-color: #c57600;
+  transition: all 0.2s ease-in-out;
 }
 
 @media screen and (min-width: 700px) {
