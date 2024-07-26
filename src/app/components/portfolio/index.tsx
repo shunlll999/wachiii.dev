@@ -1,8 +1,8 @@
 import styles from './portfolio.module.css'
-import TopContentView from '../ui/comps/topContentView'
 import RecentCard from '../ui/comps/cards/recent'
 import GalleryTabBar from '../ui/cagergory/bar'
 import { useState } from 'react'
+import TopContentView from '../ui/comps/topContentView';
 
 const defaultGallery = [
   { type: 'webs' },
@@ -44,7 +44,7 @@ const Portfolio = (props: any) => {
   return (
     <div className={styles['flex-layout']}>
       <TopContentView />
-      <h2>Top 3 Recents</h2>
+      <h2 className={styles.headline}>Top 3 Recents</h2>
       <div className={styles['recent-card-group']}>
         <RecentCard type='top3' />
         <RecentCard type='top3' />
