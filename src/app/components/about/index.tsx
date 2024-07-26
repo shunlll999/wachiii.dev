@@ -1,6 +1,6 @@
-'use strict';
+'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './about.module.css';
 import gsap from 'gsap';
 import Button from '../ui/button';

@@ -1,11 +1,7 @@
-import { LocationType } from '@/app/page'
 import styles from '../actions.module.css'
 import { useState } from 'react'
-const Navigation = ({ onAction, addBackground: color }: { onAction: (location: LocationType) => void, addBackground?: boolean }) => {
+const Navigation = ({ addBackground: color }: { addBackground?: boolean }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const onActionLink = (link: LocationType) => {
-    if (onAction) onAction(link)
-  }
 
   const onToggleMenu = () => {
     setIsOpen(!isOpen);
