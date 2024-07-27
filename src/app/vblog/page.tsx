@@ -1,11 +1,14 @@
-import RootLayout from '../layout';
+import Metadata from '@/components/meta/metaData';
 import styles from './vblog.module.css'
 
 const VBlogPage = () => {
   return (
-    <RootLayout>
+    <div>
+      <head>
+        <Metadata seoTitle='wAiii - VBLog' seoDescription='wAiii' />
+      </head>
       <div className={styles['vblog-container']}>VBLog</div>
-    </RootLayout>
+    </div>
   )
 }
 

@@ -1,0 +1,82 @@
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 5em;
+}
+
+.panel {
+  width: 80%;
+  height: fit-content;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  margin: 1rem 0 0;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  color: black;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 1rem;
+}
+
+.input-group label {
+  margin: 0 0.5rem;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.input-group input {
+  margin: 0 0.5rem;
+  font-size: 12px;
+  height: 30px;
+  width: 70%;
+  border-radius: 5px;
+  border-width: 0;
+  padding: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-group input:hover {
+  border-width: 2px;
+}
+
+.button-container {
+  margin: 0 1rem;
+}
+
+.hidden {
+  margin: 1rem;
+}
+
+.error-container {
+  display: block;
+  width: fit-content;
+  height: 100px;
+  background: rgba(18, 18, 18, 0.396);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  color: rgb(221, 0, 66);
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+  font-size: 50px;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@media screen and (min-width: 700px) {
+  .panel {
+    width: 50%;
+  }
+}

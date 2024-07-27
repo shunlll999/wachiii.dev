@@ -1,12 +1,15 @@
 'use client'
-import About from '../components/about'
-import RootLayout from '../layout'
+import Metadata from '@/components/meta/metaData'
+import About from '../../components/about'
 
 const AboutPage = () => {
   return (
-    <RootLayout>
+    <div>
+      <head>
+        <Metadata seoTitle="wAiii - About me" seoDescription='wAiii' />
+      </head>
       <About />
-    </RootLayout>
+    </div>
   )
 }
 

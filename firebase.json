@@ -5,6 +5,9 @@
   },
   "hosting": {
     "public": "out",
+    "headers": [
+      { "source":"/service-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -22,9 +25,14 @@
       {
         "source": "/vblog",
         "destination": "/vblog.html"
-      },{
+      },
+      {
         "source": "/contact",
         "destination": "/contact.html"
+      },
+      {
+        "source": "/wachiii",
+        "destination": "/wachiii.html"
       }
     ]
   }

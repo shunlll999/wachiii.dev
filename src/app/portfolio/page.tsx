@@ -1,12 +1,16 @@
 'use client'
-import Portfolio from '../components/portfolio'
-import RootLayout from '../layout'
+
+import Metadata from '@/components/meta/metaData'
+import Portfolio from '../../components/portfolio'
 
 const PortfolioPage = () => {
   return (
-    <RootLayout>
+    <div>
+      <head>
+        <Metadata seoTitle='wAiii - Portfolios' seoDescription='wAiii' />
+      </head>
       <Portfolio />
-    </RootLayout>
+    </div>
   )
 }
 

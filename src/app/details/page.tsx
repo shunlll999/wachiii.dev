@@ -1,7 +1,8 @@
 'use client'
 
-import getDocumentByID, { getDocument, ResultType } from "@/app/connections/getData"
-import RootLayout from "@/app/layout"
+import Metadata from "@/components/meta/metaData"
+import getDocumentByID, { getDocument, ResultType } from "@/connections/getData"
+import { COLLECTIONS } from "@/constants/collections"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Markdown from 'react-markdown'
@@ -15,7 +16,7 @@ const PortfolioPage = () => {
 
   const getData = async () => {
     if (details) {
-      const dataSnapShot = await getDocumentByID('/portfoliosCollection', details[1])
+      const dataSnapShot = await getDocumentByID(COLLECTIONS.PORTFOLIOS_COLLECTION, details[1])
       const result =  dataSnapShot.result?.data()
       const info = await getDocument(result?.product_info)
       const data = {
@@ -34,7 +35,10 @@ const PortfolioPage = () => {
   const markdown = `# Hi, here this is *${itemData.name}*! \n\n ${itemData.describe}`
 
   return (
-    <RootLayout>
+    <div>
+      <head>
+        <Metadata seoTitle={`wAiii - Portfolio::${itemData.name}}`} seoDescription='wAiii' />
+      </head>
       <div style={{ textAlign: 'center', padding: 120 }}>
       <h1 style={{ fontSize: 60, margin: '0 0 2rem' }}>{itemData.name}</h1>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -46,7 +50,7 @@ const PortfolioPage = () => {
         {itemData.product_info?.description}
       </section>
       </div>
-    </RootLayout>
+    </div>
   )
 }
 

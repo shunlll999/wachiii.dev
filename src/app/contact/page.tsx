@@ -1,11 +1,14 @@
-import RootLayout from '../layout';
+import Metadata from '@/components/meta/metaData';
 import styles from './vblog.module.css'
 
 const ContactMePage = () => {
   return (
-    <RootLayout>
+    <div>
+      <head>
+        <Metadata seoTitle="wAiii - Contact me" seoDescription='wAiii' />
+      </head>
       <div className={styles['vblog-container']}>Contact 📲</div>
-    </RootLayout>
+    </div>
   )
 }
 

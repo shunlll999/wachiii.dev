@@ -7,11 +7,9 @@ const GalleryTabBar = ({ onSelectType }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [linkList, setLinkList] = useState([
     { value: 'All', href: '#all', active: true, total: 22 },
-    { value: 'Videos', href: '#videos', active: false, total: 4 },
-    { value: 'Web', href: '#webs', active: false, total: 3 },
+    { value: 'Web', href: '#web', active: false, total: 3 },
     { value: 'Games', href: '#games', active: false, total: 10 },
-    { value: 'Mobile', href: '#mobiles', active: false, total: 3 },
-    { value: 'Photos', href: '#images', active: false, total: 2 },
+    { value: 'Mobile', href: '#mobile', active: false, total: 3 },
   ])
 
   const onSelectLink = (event: any) => {
