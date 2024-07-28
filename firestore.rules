@@ -3,11 +3,37 @@ rules_version = "2";
 service cloud.firestore {
   match /databases/{database}/documents {
 
+  	function getUser() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+  	function isUser() {
+      return request.auth.uid == getUser().data.uid;
+    }
+
+  	function isMatchAdmin() {
+    	return isUser() && getUser().data.role == "WACHIII";
+    }
+
     match /users/{document} {
-      allow create: if request.auth.uid == resource.data.uid && request.auth.role == "wachiii";
-      allow read: if request.auth.uid == resource.data.uid && request.auth.role == "wachiii";
-      allow write: if request.auth.uid == resource.data.uid && request.auth.role == "wachiii";
+      allow read: if true;
+      allow create: if true;
+      allow update: if isUser();
       allow delete: if false;
+    }
+
+    match /portfoliosCollection/{document}  {
+    	allow read: if true;
+      allow create: if isMatchAdmin();
+      allow update: if isMatchAdmin();
+      allow delete: if isMatchAdmin();
+    }
+
+    match /product_info/{document} {
+    	allow read: if true;
+      allow create: if isMatchAdmin();
+      allow update: if isMatchAdmin();
+      allow delete: if isMatchAdmin();
     }
 
     match /{document=**} {
@@ -20,7 +46,8 @@ service cloud.firestore {
       // Make sure to write security rules for your app before that time, or
       // else all client requests to your database will be denied until you
       // update your rules.
-      allow read, write: if request.time < timestamp.date(2024, 8, 25);
+      // allow read, write: if request.time < timestamp.date(2024, 8, 25);
+      allow read, write: if false;
     }
   }
 }
