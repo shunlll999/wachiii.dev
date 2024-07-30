@@ -1,0 +1,11 @@
+.button-create-container {
+  width: 100px;
+}
+
+.panel {
+  width: 400px;
+  height: fit-content;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.338);
+  border-radius: 10px;
+}
