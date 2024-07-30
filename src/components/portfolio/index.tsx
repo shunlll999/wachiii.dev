@@ -59,11 +59,12 @@ const Portfolio = () => {
   const [gallery, setGallery] = useState(defaultGallery)
   const [isLoading, setIsLoading] = useState(false)
   const [top3Data, setTop3Data] = useState<any[]>([])
+  const [portfolioData, setPortFolioData] = useState<any[]>([])
   const router = useRouter()
 
   const  onSelectType = (type: string) => {
-    const newGallery = defaultGallery.filter((item) => item.type === type)
-    setGallery(newGallery.length > 0 ? newGallery : defaultGallery);
+    const newGallery = portfolioData.filter((item) => item.type === type)
+    setGallery(newGallery.length > 0 ? newGallery : portfolioData);
   }
 
   const onSelectContent = (item?: RedirectType) => {
@@ -74,13 +75,20 @@ const Portfolio = () => {
 
   const getAllTopThree = async () => {
     const documents: ResultType[] = await getDocuments(COLLECTIONS.PORTFOLIOS_COLLECTION)
+    console.log(documents)
     setIsLoading(false)
     setTop3Data(documents.sort(function(a, b){return b.viewed - a.viewed}).slice(0, 3).map((item) => ({ ...item, type: PORT_TYPE.TOP3 })))
+  }
+
+  const getAllPortfolios = async () => {
+    const documents: ResultType[] = await getDocuments(COLLECTIONS.PORTFOLIOS_COLLECTION)
+    setPortFolioData(documents);
   }
 
   useEffect(() => {
     setIsLoading(true)
     getAllTopThree()
+    getAllPortfolios()
   }, [])
 
   return (
@@ -97,7 +105,7 @@ const Portfolio = () => {
       <GalleryTabBar onSelectType={onSelectType} />
       <div className={styles['recent-card-group']}>
         {gallery.map((item, key) => (
-           <RecentCard key={key} type={item.type} onSelected={() => onSelectContent()} data={top3[Math.round(Math.random() * 2)]}/>
+           <RecentCard key={key} type={item.type} onSelected={() => onSelectContent()} data={item}/>
         ))}
       </div>
     </div>

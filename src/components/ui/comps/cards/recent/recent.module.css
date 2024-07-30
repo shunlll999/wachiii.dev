@@ -45,7 +45,8 @@
 }
 
 .card-description {
-  font-size: small;
+  font-size: 10px;
+  color: rgb(76, 76, 76);
 }
 
 .badges {

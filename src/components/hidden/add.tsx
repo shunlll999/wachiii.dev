@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../ui/button';
 import styles from './hidden.module.css'
 import { useAuthContext } from '@/app/context/auth'; // Import the UserContextType
 import PortfolioForm from './portfolioForm';
+import { getPorts } from '@/connections/createPort';
 
 const programList = [
   { name: 'Select program:', value: 0 },
@@ -12,6 +13,7 @@ const programList = [
 
 const HiddenAddContent = ({response, killedBackdoor }: {response: any, killedBackdoor: () => void}) => {
   const { user }: any = useAuthContext();
+  const [ports, setPorts] = useState<any>([])
   const [itemSelected, setItemSelected] = useState<any>(null)
 
   const onKilled = () => {
@@ -25,6 +27,15 @@ const HiddenAddContent = ({response, killedBackdoor }: {response: any, killedBac
     console.log(e.target.value)
     setItemSelected(e.target.value)
   }
+
+  const getPortfolio = async () => {
+    const ports = await getPorts()
+    setPorts(ports)
+  }
+
+  useEffect(() => {
+    getPortfolio()
+  }, [])
 
   const programSelect: { [key: number]: JSX.Element | null } = {
     1: <PortfolioForm />,
@@ -46,6 +57,9 @@ const HiddenAddContent = ({response, killedBackdoor }: {response: any, killedBac
         </div>
         {programSelect[itemSelected]}
       </div>
+      {ports.map((port: any, key: number) => {
+        return <div key={key}>{port.name}</div>
+      })}
       <div className={styles['mobile-wrapper']}>
         The program is not support on Mobile view
       </div>

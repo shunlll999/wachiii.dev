@@ -14,7 +14,7 @@ export type CardDataType = {
 
 type RecentCardProps = {
   onSelected?: () => void
-  data: CardDataType
+  data: CardDataType | any
   type: string
 }
 
