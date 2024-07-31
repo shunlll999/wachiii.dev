@@ -24,9 +24,6 @@ const Portfolio = () => {
 
   const  onSelectType = (type: string) => {
     const newGallery = portfolioData.filter((item) => item.type === type)
-    console.log(newGallery)
-    console.log(':::::')
-    console.log(portfolioData)
     setGallery(newGallery.length > 0 ? newGallery : portfolioData);
   }
 
@@ -60,7 +57,7 @@ const Portfolio = () => {
         ))}
       </div>
       <h3>Gallery</h3>
-      <GalleryTabBar onSelectType={onSelectType} />
+      <GalleryTabBar onSelectType={onSelectType} count={gallery.length} />
       <div className={styles['recent-card-group']}>
         {gallery.map((item, key) => (
            <RecentCard key={key} type={item.type} onSelected={() => onSelectContent()} data={item}/>
