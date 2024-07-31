@@ -19,6 +19,7 @@ type RecentCardProps = {
 }
 
 const RecentCard = ({ type, onSelected, data }: RecentCardProps) => {
+  // console.log('data:::>', data)
   return (
     <div data-type={type} className={styles.card} onClick={() => onSelected && onSelected()}>
       {data.type === PORT_TYPE.TOP3 && <div className={styles['view-badge']}>{data.viewed}</div>}

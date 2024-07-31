@@ -10,53 +10,13 @@ import { COLLECTIONS } from '@/constants/collections'
 import Link from 'next/link'
 import { PORT_TYPE } from '@/constants/enum'
 
-const defaultGallery = [
-  { type: 'web' },
-  { type: 'games' },
-  { type: 'games' },
-  { type: 'web' },
-  { type: 'web' },
-  { type: 'mobile' },
-  { type: 'mobile' },
-];
-
-const top3: CardDataType[] = [
-  {
-    type: PORT_TYPE.ALL,
-    name: 'PaperBoy',
-    describe: '>With supporting text below as a natural lead-in to additional content.',
-    photo_url: '/assets/images/papaerboy_a.png',
-    product_year: '2022',
-    product_info: '1',
-    viewed: 0
-  },
-  {
-    type: PORT_TYPE.ALL,
-    name: 'Preload game',
-    describe: 'Preload the game',
-    photo_url: '/assets/images/projects/html5Game/2014/game/cover.png',
-    product_year: '2022',
-    product_info: '2',
-    viewed: 0
-  },
-  {
-    type: PORT_TYPE.ALL,
-    name: 'Kids games',
-    describe: 'Game for kids',
-    photo_url: '/assets/images/projects/kidsGame/2012/cover.png',
-    product_year: '2012',
-    product_info: '3',
-    viewed: 0
-  }
-]
-
 type RedirectType = {
   id?: string
   pageName: string
 }
 
 const Portfolio = () => {
-  const [gallery, setGallery] = useState(defaultGallery)
+  const [gallery, setGallery] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [top3Data, setTop3Data] = useState<any[]>([])
   const [portfolioData, setPortFolioData] = useState<any[]>([])
@@ -64,6 +24,9 @@ const Portfolio = () => {
 
   const  onSelectType = (type: string) => {
     const newGallery = portfolioData.filter((item) => item.type === type)
+    console.log(newGallery)
+    console.log(':::::')
+    console.log(portfolioData)
     setGallery(newGallery.length > 0 ? newGallery : portfolioData);
   }
 
@@ -75,20 +38,15 @@ const Portfolio = () => {
 
   const getAllTopThree = async () => {
     const documents: ResultType[] = await getDocuments(COLLECTIONS.PORTFOLIOS_COLLECTION)
-    console.log(documents)
     setIsLoading(false)
     setTop3Data(documents.sort(function(a, b){return b.viewed - a.viewed}).slice(0, 3).map((item) => ({ ...item, type: PORT_TYPE.TOP3 })))
-  }
-
-  const getAllPortfolios = async () => {
-    const documents: ResultType[] = await getDocuments(COLLECTIONS.PORTFOLIOS_COLLECTION)
     setPortFolioData(documents);
+    setGallery(documents as any);
   }
 
   useEffect(() => {
     setIsLoading(true)
     getAllTopThree()
-    getAllPortfolios()
   }, [])
 
   return (

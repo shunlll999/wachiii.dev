@@ -46,8 +46,9 @@ const PortfolioPage = () => {
       <br />
       <br />
       <Markdown>{markdown}</Markdown>
-      <section style={{ fontSize: 20, margin: '2rem 0 2rem' }}>
+      <section style={{ fontSize: 20, margin: '2rem 0 0' }}>
         {itemData.product_info?.description}
+        <div style={{ color: '#9f0035', fontWeight: 'bold', margin: '2rem 0 2rem' }}>ALL CONTENT IS UNDERCONSTRUCTION</div>
       </section>
       </div>
     </div>
