@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './bar.module.css'
 import { useSearchParams } from 'next/navigation';
 
-const GalleryTabBar = ({ onSelectType }: any) => {
+const GalleryTabBar = ({ onSelectType, count }: any) => {
   const searchParams = useSearchParams()
   const [currentIndex, setCurrentIndex] = useState(0);
   const [linkList, setLinkList] = useState([
@@ -38,7 +38,7 @@ const GalleryTabBar = ({ onSelectType }: any) => {
           {value}
         </a>
       ))}
-      <div className={styles['total']}>{`${linkList[currentIndex].total} items`}</div>
+      <div className={styles['total']}>{`${count} items`}</div>
     </div>
   )
 }
