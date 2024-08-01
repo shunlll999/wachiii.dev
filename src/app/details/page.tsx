@@ -2,6 +2,7 @@
 
 import Metadata from "@/components/meta/metaData"
 import getDocumentByID, { getDocument, ResultType } from "@/connections/getData"
+import styles from './details.module.css'
 import { COLLECTIONS } from "@/constants/collections"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -50,6 +51,7 @@ const PortfolioPage = () => {
         {itemData.product_info?.description}
         <div style={{ color: '#9f0035', fontWeight: 'bold', margin: '2rem 0 2rem' }}>ALL CONTENT IS UNDERCONSTRUCTION</div>
       </section>
+      <iframe className={styles['game-container']} src='/assets/images/projects/html5Game/2014/game/index.html' width="690px" height="380px" style={{ margin: '2rem 0 0' }}></iframe>
       </div>
     </div>
   )
