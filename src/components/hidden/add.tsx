@@ -21,8 +21,6 @@ const HiddenAddContent = ({response, killedBackdoor }: {response: any, killedBac
     killedBackdoor && killedBackdoor()
   }
 
-  console.log('user', user)
-
   const onSelectItem = (e: any) => {
     console.log(e.target.value)
     setItemSelected(e.target.value)

@@ -24,24 +24,6 @@ export default async function getDocumentByID(collection: string, id: string) {
   return { result, error };
 }
 
-function pipeline(...funcs: any[]) {
-  return async function(val: any) {
-    for (let func of funcs) {
-      val = await func(val);
-    }
-    return val.data();
-  }
-}
-
-// const replaceProductInfo = async (dataArray: QueryDocumentSnapshot<DocumentData, DocumentData>[]) => {
-//   const promises = dataArray.map(async (item) => await getDoc(item.data().product_info))
-//   const resolveProductInfo = await Promise.all(promises).then((data) => {
-//     const result = data.map((item) => item.data())
-//     return result
-//   })
-//   return dataArray.map((item, index) => ({ ...item.data(), id: item.id, product_info: resolveProductInfo[index] }))
-// }
-
 const replaceProductInfo = async (
   docs: QueryDocumentSnapshot<DocumentData>[]
 ): Promise<ResultType[]> => {
@@ -67,15 +49,15 @@ const replaceProductInfo = async (
 
 export const getDocuments = async (collectionName: string): Promise<ResultType[]>  => {
   const colRef = collection(db, collectionName)
-  const docSnapshort = await getDocs(colRef)
-  const documents = await replaceProductInfo(docSnapshort.docs)
+  const docSnapshots = await getDocs(colRef)
+  const documents = await replaceProductInfo(docSnapshots.docs)
   return documents
 }
 
 export const getUserDocuments = async (collectionName: string)  => {
   const colRef = await collection(db, collectionName)
-  const docSnapshort = await getDocs(colRef)
-  console.log('docSnapshort', docSnapshort);
+  const docSnapshots = await getDocs(colRef)
+  console.log('docSnapshots', docSnapshots);
 }
 
 export const getDocument = async (snapHort: any)  => await getDoc(snapHort)
