@@ -1,6 +1,6 @@
 
 import firebase_app from "@/config/firebase.config";
-import { getFirestore, doc, getDoc, getDocs, collection, DocumentData, DocumentSnapshot, QueryDocumentSnapshot, onSnapshot } from "firebase/firestore";
+import { getFirestore, doc, getDoc, getDocs, collection, DocumentData, QueryDocumentSnapshot, DocumentReference } from "firebase/firestore";
 import { CardDataType } from "../components/ui/comps/cards/recent";
 
 type Override<Type, NewType> = Omit<Type, keyof NewType> & NewType;

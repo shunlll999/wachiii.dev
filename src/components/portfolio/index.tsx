@@ -60,7 +60,7 @@ const Portfolio = () => {
       <GalleryTabBar onSelectType={onSelectType} count={gallery.length} />
       <div className={styles['recent-card-group']}>
         {gallery.map((item, key) => (
-           <RecentCard key={key} type={item.type} onSelected={() => onSelectContent()} data={item}/>
+           <RecentCard key={key} type={item.type} onSelected={() => onSelectContent(item)} data={item}/>
         ))}
       </div>
     </div>
