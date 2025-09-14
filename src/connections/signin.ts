@@ -12,6 +12,7 @@ export default async function signIn(email: string, password: string) {
   try {
     result = await signInWithEmailAndPassword(auth, email, password);
     const dataStore = result.user.toJSON()
+    console.log('store', dataStore);
     userData = await getDocumentByID(COLLECTIONS.USER_COLLECTION, result.user.uid);
     const store = {
       ...userData.result?.data(),
