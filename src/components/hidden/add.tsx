@@ -28,6 +28,7 @@ const HiddenAddContent = ({response, killedBackdoor }: {response: any, killedBac
 
   const getPortfolio = async () => {
     const ports = await getPorts()
+    console.log('ports', ports);
     setPorts(ports)
   }
 

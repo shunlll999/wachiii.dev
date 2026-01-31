@@ -46,6 +46,8 @@ const Portfolio = () => {
     getAllTopThree()
   }, [])
 
+  console.log('top3Data', top3Data);
+
   return (
     <div className={styles['flex-layout']}>
       <TopContentView />
@@ -53,7 +55,7 @@ const Portfolio = () => {
       <div className={styles['recent-card-group']}>
         {isLoading ? 'LOADING' : ''}
         {top3Data.map((item, key) => (
-          <Link key={key} href={`/details?info=${item.name}⍵${item.id}`}><RecentCard type='top3' data={item} /></Link>
+          <Link key={key} href={ item.id === "i6d0y2ikRHZtMKJSAk8W" ? 'https://wachiii.web.app/' : `/details?info=${item.name}⍵${item.id}`}><RecentCard type='top3' data={item} /></Link>
         ))}
       </div>
       <h3>Gallery</h3>
